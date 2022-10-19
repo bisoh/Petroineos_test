@@ -1,4 +1,4 @@
-using Service;
+using PetroineosService;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services => { services.AddHostedService<Worker>(); })

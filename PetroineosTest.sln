@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{A64A23DD-1C19-46F8-B64E-6917C0E394AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetroineosService", "PetroineosService\PetroineosService.csproj", "{A64A23DD-1C19-46F8-B64E-6917C0E394AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.UnitTests", "Service.UnitTests\Service.UnitTests.csproj", "{ACE5697D-BEE1-4B08-BE2B-30461683BA20}"
 EndProject

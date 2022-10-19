@@ -1,4 +1,6 @@
-namespace Service;
+using Services;
+
+namespace PetroineosService;
 
 public class Worker : BackgroundService
 {
@@ -14,7 +16,12 @@ public class Worker : BackgroundService
         while (!stoppingToken.IsCancellationRequested)
         {
             _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-            await Task.Delay(1000, stoppingToken);
+            //await Task.Delay(1000, stoppingToken);
+            PowerService ps = new PowerService();
+            var result = await ps.GetTradesAsync(DateTime.Now);
+
+
+
         }
     }
 }
