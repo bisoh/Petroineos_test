@@ -1,3 +1,4 @@
+using PetroineosService.Services;
 using Services;
 
 namespace PetroineosService;
@@ -5,10 +6,12 @@ namespace PetroineosService;
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
+    private readonly PowerTradingManager _manager;
 
-    public Worker(ILogger<Worker> logger)
+    public Worker(ILogger<Worker> logger, PowerTradingManager manager)
     {
         _logger = logger;
+        _manager = manager;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -16,9 +19,9 @@ public class Worker : BackgroundService
         while (!stoppingToken.IsCancellationRequested)
         {
             _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-            //await Task.Delay(1000, stoppingToken);
-            PowerService ps = new PowerService();
-            var result = await ps.GetTradesAsync(DateTime.Now);
+            await Task.Delay(3000, stoppingToken);
+
+            await _manager.Trade();
 
 
 

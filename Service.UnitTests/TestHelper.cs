@@ -13,10 +13,12 @@ public class TestHelper
     {
         for (int i = 0; i < 12; i++)
         {
+            input.Periods[i].Period = i; // setting this because the GetTradesAsync returns Periods starting from 0. but the Create function starts at 1
             input.Periods[i].Volume = 100;
         }
         for (int i = 12; i < input.Periods.Length; i++)
         {
+            input.Periods[i].Period = i; // setting this because the GetTradesAsync returns Periods starting from 0. but the Create function starts at 1
             input.Periods[i].Volume = 50;
         }
     }
