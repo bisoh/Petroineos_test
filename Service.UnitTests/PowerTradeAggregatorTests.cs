@@ -18,9 +18,9 @@ public class PowerTradeAggregatorTests
     public void Aggregates2PowerTradesCorrectly()
     {
         var input = PowerTrade.Create(DateTime.Now, 24);
-        ManipulateInput(input);
+        TestHelper.ManipulateInput(input);
         var input2 = PowerTrade.Create(DateTime.Now, 24);
-        ManipulateInput(input2);
+        TestHelper.ManipulateInput(input2);
 
         List<PowerTrade> listOfInput = new List<PowerTrade>()
         {
@@ -46,11 +46,11 @@ public class PowerTradeAggregatorTests
     public void Aggregates3PowerTradesCorrectly()
     {
         var input = PowerTrade.Create(DateTime.Now, 24);
-        ManipulateInput(input);
+        TestHelper.ManipulateInput(input);
         var input2 = PowerTrade.Create(DateTime.Now, 24);
-        ManipulateInput(input2);
+        TestHelper.ManipulateInput(input2);
         var input3 = PowerTrade.Create(DateTime.Now, 24);
-        ManipulateInput(input3);
+        TestHelper.ManipulateInput(input3);
 
         List<PowerTrade> listOfInput = new List<PowerTrade>()
         {
@@ -71,23 +71,4 @@ public class PowerTradeAggregatorTests
             Assert.AreEqual(150, result.Periods[i].Volume);
         }
     }
-
-    /// <summary>
-    /// PowerTrade properties have internal setter. This is making it hard to test the the Aggregator because
-    /// I don't know what numbers will be generated everytime, so I can't have an expected result.
-    /// This function is to update PowerTrade volumes to some static values so we can test our Aggregation logic.
-    /// </summary>
-    private void ManipulateInput(PowerTrade input)
-    {
-        for (int i = 0; i < 12; i++)
-        {
-            input.Periods[i].Volume = 100;
-        }
-        for (int i = 12; i < input.Periods.Length; i++)
-        {
-            input.Periods[i].Volume = 50;
-        }
-    }
-
-
 }
