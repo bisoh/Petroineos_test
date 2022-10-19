@@ -2,11 +2,11 @@
 
 namespace PetroineosService.Services;
 
-public class PowerServiceDataProvider : IPowerServiceDataProvider
+public class PowerDataProvider : IPowerDataProvider
 {
     private PowerService _powerService;
 
-    public PowerServiceDataProvider()
+    public PowerDataProvider()
     {
         _powerService = new PowerService();
     }

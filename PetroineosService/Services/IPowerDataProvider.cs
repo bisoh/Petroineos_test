@@ -2,7 +2,7 @@
 
 namespace PetroineosService.Services;
 
-public interface IPowerServiceDataProvider
+public interface IPowerDataProvider
 {
     Task<IEnumerable<PowerTrade>> GetData(DateTime requestDate);
 }
