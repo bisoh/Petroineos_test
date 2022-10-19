@@ -6,6 +6,16 @@
 - When the services runs to do the trading/aggregation, the identifier for the run is `DateTime.Now`
 
 ---
+
+## How to run
+
+Run the service and it should generate a file every 2 seconds. Interval is short so its easier to test. 
+
+_**I have changed the file name to include seconds because it will generate multiple files/minute**_ 
+
+Change the config called `exportFileLocation` to change the location. Empty value will drop it in the "PetroineosService" folder.
+
+---
 ## Improvements
 
 - replace the DateTime.Now with an abstraction so you can test it the correct date is being passed in the manager
