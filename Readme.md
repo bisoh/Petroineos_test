@@ -11,3 +11,4 @@
 - replace the DateTime.Now with an abstraction so you can test it the correct date is being passed in the manager
 - The formatter and exporter need to be 'tied up' somehow so that you dont format the data as json and export it to CSV. (Not coupling) 
 - passing in `IConfiguration` for simplicity given its only one config. If we had many, I would group them in objects with similar symantics 
+- add more tests to the exporter to test exporting to the path functionality
