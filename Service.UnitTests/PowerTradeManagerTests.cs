@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using Microsoft.Extensions.Logging;
+using Moq;
 using PetroineosService.Services;
 using Services;
 
@@ -40,7 +41,8 @@ public class PowerTradeManagerTests
         _sut = new PowerTradingManager(_powerDataProviderMock.Object,
             _aggregatorMock.Object,
             _formatterMock.Object,
-            _exporterMock.Object);
+            _exporterMock.Object,
+            new Mock<ILogger<PowerTradingManager>>().Object);
     }
 
     [Test]
@@ -78,5 +80,13 @@ public class PowerTradeManagerTests
         await _sut.Trade();
 
         _exporterMock.Verify(c => c.Export(It.IsAny<string>(), "anything"));
+    }
+
+    [Test]
+    public async Task Trade_WhenDataProviderThrowsAnException_AnExceptionIsThrownByManager()
+    {
+        _powerDataProviderMock.Setup(c => c.GetData( It.IsAny<DateTime>())).Throws<NullReferenceException>();
+
+        Assert.ThrowsAsync<NullReferenceException>(() => _sut.Trade());
     }
 }
