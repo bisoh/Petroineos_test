@@ -4,5 +4,5 @@ namespace PetroineosService.Services;
 
 public interface IPowerTradeFormatter
 {
-    string Export(PowerTrade content);
+    string Format(PowerTrade content);
 }

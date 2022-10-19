@@ -24,7 +24,7 @@ public class PowerTradingManager
 
         string fileName = $"PowerPosition_{DateTime.Now.ToString("yyyyMMdd_HHmm")}";
 
-        var exportedData = _formatter.Export(aggregatedData);
+        var exportedData = _formatter.Format(aggregatedData);
 
         await _exporter.Export(fileName, exportedData);
     }

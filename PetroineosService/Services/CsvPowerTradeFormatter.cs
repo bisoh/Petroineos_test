@@ -32,7 +32,7 @@ public class CsvPowerTradeFormatter : IPowerTradeFormatter
         { 22	, "21:00" },
         { 23	, "22:00" }
     };
-    public string Export(PowerTrade content)
+    public string Format(PowerTrade content)
     {
         StringBuilder sb = new StringBuilder("LocalTime,Volume");
         sb.AppendLine();
