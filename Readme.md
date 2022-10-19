@@ -18,7 +18,8 @@ Change the config called `exportFileLocation` to change the location. Empty valu
 ---
 ## Improvements
 
-- replace the DateTime.Now with an abstraction so you can test it the correct date is being passed in the manager
+- Replace the DateTime.Now with an abstraction so you can test it the correct date is being passed in the manager
 - The formatter and exporter need to be 'tied up' somehow so that you dont format the data as json and export it to CSV. (Not coupling) 
-- passing in `IConfiguration` for simplicity given its only one config. If we had many, I would group them in objects with similar symantics 
-- add more tests to the exporter to test exporting to the path functionality
+- Passing in `IConfiguration` for simplicity given its only one config. If we had many, I would group them in objects with similar symantics 
+- Add more tests to the exporter to test exporting to the path functionality
+- The aggregator now works ok. However, I expect with large quantities of data it may not be fast enough. In that case I think maybe using map/reduce Aggregator would improve performance.
