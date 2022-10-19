@@ -3,7 +3,7 @@ using Services;
 
 namespace PetroineosService.Services;
 
-public class CsvPowerTradeExporter : IPowerTradeExporter
+public class CsvPowerTradeFormatter : IPowerTradeFormatter
 {
     private Dictionary<int, string> hourMap = new()
     {

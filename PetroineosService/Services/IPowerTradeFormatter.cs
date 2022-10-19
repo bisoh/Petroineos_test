@@ -2,7 +2,7 @@
 
 namespace PetroineosService.Services;
 
-public interface IPowerTradeExporter
+public interface IPowerTradeFormatter
 {
     string Export(PowerTrade content);
 }

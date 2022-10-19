@@ -7,12 +7,12 @@ namespace Service.UnitTests;
 [TestFixture]
 public class CsvPowerTradeExporterTests
 {
-    private CsvPowerTradeExporter _sut;
+    private CsvPowerTradeFormatter _sut;
 
     [SetUp]
     public void SetUp()
     {
-        _sut = new CsvPowerTradeExporter();
+        _sut = new CsvPowerTradeFormatter();
     }
 
     [Test]

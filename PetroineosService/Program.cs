@@ -6,7 +6,7 @@ IHost host = Host.CreateDefaultBuilder(args)
     {
         services.AddHostedService<Worker>();
         services.AddSingleton<IPowerTradeAggregator, PowerTradeAggregator>();
-        services.AddSingleton<IPowerTradeExporter, CsvPowerTradeExporter>();
+        services.AddSingleton<IPowerTradeFormatter, CsvPowerTradeFormatter>();
         services.AddSingleton<IPowerServiceDataProvider, PowerServiceDataProvider>();
         services.AddSingleton<PowerTradingManager>();
     })

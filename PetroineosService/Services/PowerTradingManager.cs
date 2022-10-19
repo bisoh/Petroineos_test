@@ -4,14 +4,14 @@ public class PowerTradingManager
 {
     private readonly IPowerServiceDataProvider _powerServiceDataProvider;
     private readonly IPowerTradeAggregator _aggregator;
-    private readonly IPowerTradeExporter _exporter;
+    private readonly IPowerTradeFormatter _formatter;
 
     public PowerTradingManager(IPowerServiceDataProvider powerServiceDataProvider, IPowerTradeAggregator aggregator,
-        IPowerTradeExporter exporter)
+        IPowerTradeFormatter formatter)
     {
         _powerServiceDataProvider = powerServiceDataProvider;
         _aggregator = aggregator;
-        _exporter = exporter;
+        _formatter = formatter;
     }
 
     public async Task Trade()
@@ -20,7 +20,7 @@ public class PowerTradingManager
 
         var aggregatedData = _aggregator.AggregatePowerTrades(data.ToList());
         string fileName = $"PowerPosition_{DateTime.Now.ToString("yyyyMMdd_HHmm")}.csv";
-        var exportedData = _exporter.Export(aggregatedData);
+        var exportedData = _formatter.Export(aggregatedData);
         await File.WriteAllTextAsync(fileName, exportedData);
     }
 }
