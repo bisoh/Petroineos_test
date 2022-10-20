@@ -7,7 +7,7 @@ public class CsvPowerTradeFormatter : IPowerTradeFormatter
 {
     private Dictionary<int, string> hourMap = new()
     {
-        {0 , "23:00" },
+        { 0	, "23:00" },
         { 1	, "00:00" },
         { 2	, "01:00" },
         { 3	, "02:00" },
@@ -32,6 +32,7 @@ public class CsvPowerTradeFormatter : IPowerTradeFormatter
         { 22	, "21:00" },
         { 23	, "22:00" }
     };
+
     public string Format(PowerTrade content)
     {
         StringBuilder sb = new StringBuilder("LocalTime,Volume");
@@ -42,9 +43,5 @@ public class CsvPowerTradeFormatter : IPowerTradeFormatter
         }
 
         return sb.ToString().Trim();
-
-
     }
-
-
 }

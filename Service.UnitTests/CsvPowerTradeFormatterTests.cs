@@ -1,11 +1,10 @@
-﻿using NUnit.Framework;
-using PetroineosService.Services;
+﻿using PetroineosService.Services;
 using Services;
 
 namespace Service.UnitTests;
 
 [TestFixture]
-public class CsvPowerTradeExporterTests
+public class CsvPowerTradeFormatterTests
 {
     private CsvPowerTradeFormatter _sut;
 
@@ -16,7 +15,7 @@ public class CsvPowerTradeExporterTests
     }
 
     [Test]
-    public void ExportsPowerTradeCorrectly()
+    public void Format_ExportsCsvCorrectly()
     {
         var input = PowerTrade.Create(DateTime.Now, 24);
         TestHelper.ManipulateInput(input);
