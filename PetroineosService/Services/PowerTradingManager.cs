@@ -29,7 +29,7 @@ public class PowerTradingManager
             _logger.LogInformation($"Aggregating {data.Count()} PowerTrader");
             var aggregatedData = _aggregator.AggregatePowerTrades(data.ToList());
 
-            string fileName = $"PowerPosition_{DateTime.Now.ToString("yyyyMMdd_HHmmss")}";
+            string fileName = $"PowerPosition_{startTime.ToString("yyyyMMdd_HHmmss")}";
 
             _logger.LogInformation($"Formatting data that started at {startTime}");
 
